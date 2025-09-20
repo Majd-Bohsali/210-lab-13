@@ -1,4 +1,4 @@
-// COMSC210 | Lab 12 | Majd Bohsali
+// COMSC210 | Lab 13 | Majd Bohsali
 // IDE used: Visual Studio Code
 
 #include <iostream>
@@ -8,11 +8,12 @@
 #include <fstream>
 #include <iostream> 
 #include <string> 
+#include <vector>
 using namespace std;
 
 int main() { 
     const int SIZE = 30; 
-    array<double, SIZE> testScores; 
+    vector<double> testScores(SIZE); 
     ifstream inputFile("studentTestScores.txt"); 
     
     if(!inputFile.is_open()) { 
@@ -23,12 +24,17 @@ int main() {
     string line; 
     int i = 0; 
     while(getline(inputFile, line)) { 
-        testScores[i] = stod(line);
+        testScores.at(i) = stod(line);
         i++;
     }
 
     cout << "Original Test Scores List: ";
     for (double score : testScores) cout << score << " "; cout << endl << endl;
+    cout << "Element 3: " << testScores.at(3) << endl << endl;
+    cout << "Element 3: " << testScores.at(3) << endl << endl;
+    cout << "Front Value: " << testScores.front() << endl << endl; 
+    cout << "Back Value: " << testScores.back() << endl << endl; 
+    cout << "Vector Address: " << testScores.data() << endl << endl;  
     cout << "Number of test scores: " << testScores.size() << endl << endl;
     cout << "Highest test score: " << *max_element(testScores.begin(), testScores.end()) << endl << endl;  
     cout << "Lowest test score: " << *min_element(testScores.begin(), testScores.end()) << endl << endl;  
