@@ -30,16 +30,25 @@ int main() {
 
     cout << "Original Test Scores List: ";
     for (double score : testScores) cout << score << " "; cout << endl << endl;
-    cout << "Element 3: " << testScores.at(3) << endl << endl;
-    cout << "Element 3: " << testScores.at(3) << endl << endl;
-    cout << "Front Value: " << testScores.front() << endl << endl; 
-    cout << "Back Value: " << testScores.back() << endl << endl; 
     cout << "Vector Address: " << testScores.data() << endl << endl;  
     cout << "Number of test scores: " << testScores.size() << endl << endl;
     cout << "Highest test score: " << *max_element(testScores.begin(), testScores.end()) << endl << endl;  
     cout << "Lowest test score: " << *min_element(testScores.begin(), testScores.end()) << endl << endl;  
     cout << "Sum of test scores: " << accumulate(testScores.begin(), testScores.end(), 0.0) << endl << endl;
     cout << "Average test score: " << (accumulate(testScores.begin(), testScores.end(), 0.0)/testScores.size()) << endl << endl;
+    cout << "Element at index 3: " << testScores.at(3) << endl << endl;
+    cout << "Element at front: " << testScores.front() << endl << endl; 
+    cout << "Element at back: " << testScores.back() << endl << endl; 
+
+    // makes a copy of the test scorse
+    vector<double> testScoresCopy = testScores; 
+    // sets all values to 90
+    fill(testScoresCopy.begin(), testScoresCopy.end(), 90);
+    // Pastes both arrays  
+    cout << "Original Test Scores List: ";
+    for (double score : testScores) cout << score << " "; cout << endl << endl;
+    cout << "Test Scores Copy List - with all values set to 90: ";
+    for (double score : testScoresCopy) cout << score << " "; cout << endl << endl; 
 
     sort(testScores.begin(), testScores.end()); 
     cout << "Test scores sorted: ";
