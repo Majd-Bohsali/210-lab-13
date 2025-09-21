@@ -27,6 +27,7 @@ int main() {
         testScores.at(i) = stod(line);
         i++;
     }
+    inputFile.close();
 
     cout << "Original Test Scores List: ";
     for (double score : testScores) cout << score << " "; cout << endl << endl;
@@ -64,6 +65,5 @@ int main() {
     cout << "Test Scores Copy List: ";
     for (double score : testScoresCopy) cout << score << " "; cout << endl << endl;
 
-    inputFile.close();
     return 0;
 }
